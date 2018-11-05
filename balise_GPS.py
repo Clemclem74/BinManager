@@ -1,3 +1,6 @@
+#CAAAAAMS
+
+
 
 def recupererLocalistation():
 	#Renvoie les coordonnées GPS de la poubelle
