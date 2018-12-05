@@ -15,3 +15,40 @@ def main():
 #	Eteindre l’autre
 #Si poubelle pleine : Envoyer mail à l’organisme avec la localisation de la poubelle
 #Stocker la date dans la base de données lorsque la poubelle est ramassée (analyseDistance : etat=0)
+
+
+import time
+
+
+Compte_Nb_Meme_Etat = 0
+Pleins = False
+
+while(1):
+	
+	if Pleins = False :
+		if analyseDistance == 1 :
+			Compte_Nb_Meme_Etat = Compte_Nb_Meme_Etat + 1
+		else :
+			Compte_Nb_Meme_Etat = 0
+		
+		if Compte_Nb_Meme_Etat > 6 :
+			#Dire que c'est pleins (LED, MAIL ET TOUT)
+			
+			Pleins = True
+	
+	else :
+		if analyseDistance == 0 :
+			Compte_Nb_Meme_Etat = Compte_Nb_Meme_Etat + 1
+		else :
+			Compte_Nb_Meme_Etat = 0
+		
+		if Compte_Nb_Meme_Etat > 6 :
+			#Dire que c'est a nouveau vide (LED,BDD ET TOUT et poubelle vide LCD)
+			Pleins = False
+	
+	time.sleep(10)
+	
+	
+	
+	
+	
