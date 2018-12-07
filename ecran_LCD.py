@@ -99,7 +99,7 @@ def setText_norefresh(text):
 
 def poubelle_libre():
 	setRGB(0,255,0)
-	setText("Poubelle vide")
+	setText("Poubelle libre")
 
 
 def poubelle_pleine():
