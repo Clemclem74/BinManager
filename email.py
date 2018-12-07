@@ -1,77 +1,29 @@
-import capteur_ultrason as CU
-import led_rouge as LR
-import led_verte as LV
-#import base_de_donnees as BDD
-#import balise_GPS as GPS
-#import email as EM
-import ecran_LCD as LCD
-import time
+
+import smtplib
+#from email.MIMEMultipart import MIMEMultipart
+#from email.MIMEText import MIMEText
+
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
+
+def envoieEmail():
+#Envoie un email a l organisme de ramassage des poubelles avec la localisation$
+        msg = MIMEMultipart()
+        msg['From'] = 'camille.thomas42140@gmail.com'
+        msg['To'] = 'camille.thomas42140@gmail.com'
+        msg['Subject'] = 'Poubelle pleine'
+        message = 'La Poubelle numero x est pleine. Veuillez la collecter le p$
+        msg.attach(MIMEText(message))
+        mailserver = smtplib.SMTP('smtp.gmail.com', 587)
+        mailserver.ehlo()
+        mailserver.starttls()
+        mailserver.ehlo()
+        mailserver.login('camille.thomas42140@gmail.com', 'cxmdp12021997')
+        mailserver.sendmail('camille.thomas42140@gmail.com', 'camille.thomas42$
+        mailserver.quit()
 
 
 
-def main():
-#A faire tous les x temps :
-#Recuperer la distance
-#Analyser la distance :
-#	Allumer Led Verte ou Rouge (si rouge : stocker la date dans la base de dans la base de donnee)
-#	Eteindre l autre
-#Si poubelle pleine : Envoyer mail a l organisme avec la localisation de la poubelle
-#Stocker la date dans la base de donnees lorsque la poubelle est ramassee (analyseDistance : etat=0)
+envoieEmail()
 
-
-	Compte_Nb_Meme_Etat = 0
-	Pleins = False
-
-	LR.eteindreLedRouge()
-	LV.allumerLedVerte()
-	LCD.poubelle_libre()
-
-
-	while(1):
-
-		try : 
-			print(CU.recupererDistance())
-			if Pleins == False :
-				if CU.analyseDistance() == 1 :
-					Compte_Nb_Meme_Etat = Compte_Nb_Meme_Etat + 1
-				else :
-					Compte_Nb_Meme_Etat = 0
-
-				if Compte_Nb_Meme_Etat > 6 :
-					#Dire que c'est pleins (LED, MAIL ET TOUT)
-					LR.allumerLedRouge()
-					LV.eteindreLedVerte()
-					LCD.poubelle_pleine()
-					Pleins = True
-					Compte_Nb_Meme_Etat = 0
-
-			else :
-				if CU.analyseDistance() == 0 :
-					Compte_Nb_Meme_Etat = Compte_Nb_Meme_Etat + 1
-				else :
-					Compte_Nb_Meme_Etat = 0
-
-				if Compte_Nb_Meme_Etat > 6 :
-					#Dire que c'est a nouveau vide (LED,BDD ET TOUT et poubelle vide LCD)
-					LR.eteindreLedRouge()
-					LV.allumerLedVerte()
-					LCD.poubelle_libre()
-					Pleins = False
-					Compte_Nb_Meme_Etat = 0
-
-			time.sleep(2)
-
-		except KeyboardInterrupt:
-			LR.eteindreLedRouge()
-			LV.eteindreLedVerte()
-			print "CRASH"
-			LCD.setRGB(0,0,0)
-			LCD.setText("")
-			break
-	
-	
-
-
-	
-	
-main()
