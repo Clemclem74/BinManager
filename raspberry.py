@@ -64,6 +64,7 @@ def main():
 			LV.eteindreLedVerte()
 			print "CRASH"
 			LCD.setRGB(0,0,0)
+			LCD.setText("")
 			break
 	
 	
