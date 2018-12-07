@@ -1,24 +1,21 @@
-def initialiserEcran():
+#def initialiserEcran():
 
-	#Reinitialise l'écran (:"Vous pouvez jeter les déchets")
-
-
+	#Reinitialise l ecran (:"Vous pouvez jeter les dechets")
 
 
 
 
-def afficherMessage(Message):
 
-	#Ecrit le message passé en paramètre sur l'écran LCD (ex : "Cette poubelle est pleine, la prochaine disponible est devant la mairie")
+
+#def afficherMessage(Message):
+
+	#Ecrit le message passe en parametre sur l ecran LCD (ex : "Cette poubelle est pleine, la prochaine disponible est devant la mairie")
 	
 	
 	
 
 
-
-def prog_test():
-		import time,sys
-
+import time,sys
 if sys.platform == 'uwp':
     import winrt_smbus as smbus
     bus = smbus.SMBus(1)
@@ -27,9 +24,9 @@ else:
     import RPi.GPIO as GPIO
     rev = GPIO.RPI_REVISION
     if rev == 2 or rev == 3:
-        bus = smbus.SMBus(1)
+	bus = smbus.SMBus(1)
     else:
-        bus = smbus.SMBus(0)
+	bus = smbus.SMBus(0)
 
 # this device has two I2C addresses
 DISPLAY_RGB_ADDR = 0x62
@@ -103,10 +100,10 @@ def poubelle_libre():
 
 
 def poubelle_pleine():
-		setRGB(255,0,0)
-		setText("Poubelle Pleine\n Ne pas ouvrir")
-		#time.sleep(5)
-		#setText(MessageProchainePoubelle())
+	setRGB(255,0,0)
+	setText("Poubelle Pleine\n Ne pas ouvrir")
+	#time.sleep(5)
+	#setText(MessageProchainePoubelle())
 		
 		
 		
