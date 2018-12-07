@@ -31,7 +31,6 @@ def main():
 
 		try : 
 			print(CU.recupererDistance())
-			print(CU.analyseDistance())
 			if Pleins == False :
 				if CU.analyseDistance() == 1 :
 					Compte_Nb_Meme_Etat = Compte_Nb_Meme_Etat + 1
