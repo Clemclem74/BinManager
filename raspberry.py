@@ -31,6 +31,7 @@ def main():
 
 		try : 
 			print(CU.recupererDistance())
+			print(CU.analyseDistance())
 			if Pleins == False :
 				if CU.analyseDistance() == 1 :
 					Compte_Nb_Meme_Etat = Compte_Nb_Meme_Etat + 1
@@ -43,9 +44,10 @@ def main():
 					LV.eteindreLedVerte()
 					LCD.poubelle_pleine()
 					Pleins = True
+					Compte_Nb_Meme_Etat = 0
 
 			else :
-				if CU.analyseDistance == 0 :
+				if CU.analyseDistance() == 0 :
 					Compte_Nb_Meme_Etat = Compte_Nb_Meme_Etat + 1
 				else :
 					Compte_Nb_Meme_Etat = 0
@@ -56,6 +58,7 @@ def main():
 					LV.allumerLedVerte()
 					LCD.poubelle_libre()
 					Pleins = False
+					Compte_Nb_Meme_Etat = 0
 
 			time.sleep(2)
 
