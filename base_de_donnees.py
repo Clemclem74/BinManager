@@ -1,3 +1,7 @@
+import dweepy
+import time
+import request
+
 def StockDonnees(date, poubelle, temps):
 
 	#Ajoute (date, poubelle, temps), qui sont la date, le numero de la poubelle et le temps entre la poubelle pleine et la poubelle ramassee
