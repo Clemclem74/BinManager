@@ -2,16 +2,16 @@
 
 from grovepi import *
 
-# Connect the Grove Ultrasonic Ranger to digital port D4
+# Connect the Grove Ultrasonic Ranger to digital port D6
 # SIG,NC,VCC,GND
 
-ultrasonic_ranger = 4
+ultrasonic_ranger = 5
 
 def recupererDistance():
-#Renvoie la distance entre le couvercle et les déchets
+#Renvoie la distance entre le couvercle et les dechets
     try:
-    	#verifier la distance obtenue
-    	print ultrasonicRead(ultrasonic_ranger)
+        #verifier la distance obtenue
+        #print ultrasonicRead(ultrasonic_ranger)
         #retourne la distance
         return ultrasonicRead(ultrasonic_ranger)
     except TypeError :
@@ -19,13 +19,19 @@ def recupererDistance():
     except IOError :
         return -1
 
-def analyseDistance(distance, etat):
+def analyseDistance():
 #Analyse une distance et si Distance>ValeurMin
 
-#si etat était à 1: mettre etat à 0 (poubelle ramassée)
-#renvoie False (la poubelle n’est pas pleine)
-#sinon:renvoie Trueet met l’état à 1 (poubelle pleine)
+#si etat etait a 1: mettre etat a 0 (poubelle ramassee)
+#renvoie False (la poubelle n est pas pleine)
+#sinon:renvoie Trueet met l etat a 1 (poubelle pleine)
 
 #Contrainte: si Distance<hauteurPoubelle => on refais la mesure 
-#jusqu’à avoir une distance entre 0 et hateurPoubelle(correspond au cas où le couvercle de la poubelle est ouvert).
-	return 0
+#jusqu a avoir une distance entre 0 et hateurPoubelle(correspond au cas ou le $
+        dist=recupererDistance()
+        if dist>700:
+                return -1
+        elif dist<20:
+                return 1
+        else :
+                return 0
