@@ -38,12 +38,13 @@ def main():
 					Compte_Nb_Meme_Etat = 0
 
 				if Compte_Nb_Meme_Etat > 6 :
-					#Dire que c'est pleins (LED, MAIL ET TOUT)
+					#Dire que c'est pleins (LED, MAIL ET LCD)
 					LR.allumerLedRouge()
 					LV.eteindreLedVerte()
 					LCD.poubelle_pleine()
 					Pleins = True
 					Compte_Nb_Meme_Etat = 0
+					EM.envoieEmail()
 
 			else :
 				if CU.analyseDistance() == 0 :
@@ -52,7 +53,7 @@ def main():
 					Compte_Nb_Meme_Etat = 0
 
 				if Compte_Nb_Meme_Etat > 6 :
-					#Dire que c'est a nouveau vide (LED,BDD ET TOUT et poubelle vide LCD)
+					#Dire que c'est a nouveau vide (LED,BDD et poubelle vide LCD)
 					LR.eteindreLedRouge()
 					LV.allumerLedVerte()
 					LCD.poubelle_libre()
