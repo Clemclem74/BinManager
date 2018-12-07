@@ -14,9 +14,9 @@ def main():
 #Recuperer la distance
 #Analyser la distance :
 #	Allumer Led Verte ou Rouge (si rouge : stocker la date dans la base de dans la base de donnee)
-#	Eteindre l’autre
-#Si poubelle pleine : Envoyer mail à l’organisme avec la localisation de la poubelle
-#Stocker la date dans la base de données lorsque la poubelle est ramassée (analyseDistance : etat=0)
+#	Eteindre l autre
+#Si poubelle pleine : Envoyer mail à l organisme avec la localisation de la poubelle
+#Stocker la date dans la base de donnees lorsque la poubelle est ramassee (analyseDistance : etat=0)
 
 
 Compte_Nb_Meme_Etat = 0
