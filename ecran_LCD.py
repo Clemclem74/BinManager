@@ -111,6 +111,6 @@ def poubelle_pleine():
 		
 		
 
-def MessageProchainePoubelle() 
+#def MessageProchainePoubelle():
 #Renvoie une chaine de caractere correspondant a la prochaine poubelle disponible en fonction de sa position
 #Regarder si on peut comparer des coordonnees GPS pour savoir laquelle est la plus proche a vol d'oiseaux
