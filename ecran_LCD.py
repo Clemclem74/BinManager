@@ -105,8 +105,8 @@ def poubelle_libre():
 def poubelle_pleine():
 		setRGB(255,0,0)
 		setText("Poubelle Pleine\n Ne pas ouvrir")
-		time.sleep(5)
-		setText(MessageProchainePoubelle())
+		#time.sleep(5)
+		#setText(MessageProchainePoubelle())
 		
 		
 		
