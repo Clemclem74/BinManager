@@ -19,9 +19,6 @@ def main():
 #Stocker la date dans la base de données lorsque la poubelle est ramassée (analyseDistance : etat=0)
 
 
-import time
-
-
 Compte_Nb_Meme_Etat = 0
 Pleins = False
 
