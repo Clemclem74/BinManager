@@ -22,10 +22,15 @@ def main():
 Compte_Nb_Meme_Etat = 0
 Pleins = False
 
+LR.eteindreLedRouge()
+LV.allumerLedVerte()
+LCD.poubelle_libre()
+
+
 while(1):
 	
 	try : 
-	
+		print(CU.recupererDistance())
 		if Pleins = False :
 			if CU.analyseDistance() == 1 :
 				Compte_Nb_Meme_Etat = Compte_Nb_Meme_Etat + 1
@@ -36,7 +41,7 @@ while(1):
 				#Dire que c'est pleins (LED, MAIL ET TOUT)
 				LR.allumerLedRouge()
                     		LV.eteindreLedVerte()
-
+				LCD.poubelle_pleine()
 				Pleins = True
 
 		else :
@@ -49,14 +54,16 @@ while(1):
 				#Dire que c'est a nouveau vide (LED,BDD ET TOUT et poubelle vide LCD)
 				LR.eteindreLedRouge()
                         	LV.allumerLedVerte()
+				LCD.poubelle_libre()
 				Pleins = False
 
-		time.sleep(10)
+		time.sleep(2)
 	
 	except KeyboardInterrupt:
                 LR.eteindreLedRouge()
                 LV.eteindreLedVerte()
                 print "CRASH"
+		LCD.setRGB(0,0,0)
                 break
 	
 	
