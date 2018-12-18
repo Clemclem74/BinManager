@@ -19,8 +19,14 @@ def main():
 #Si poubelle pleine : Envoyer mail a l organisme avec la localisation de la poubelle
 #Stocker la date dans la base de donnees lorsque la poubelle est ramassee (analyseDistance : etat=0)
 
+#--------------------------------CONSTANTES A MODIFIER POUR CHAQUE POUBELLE--------------------------------------------------
+
 	Numero_Poubelle = 1
 	Compte_Nb_Meme_Etat = 0
+	Distance_Max = 700
+	
+#----------------------------------------------------------------------------------------------------------------------------
+
 	Pleins = False
 
 	LR.eteindreLedRouge()
@@ -34,7 +40,7 @@ def main():
 		try : 
 			print(CU.recupererDistance())
 			if Pleins == False :
-				if CU.analyseDistance() == 1 :
+				if CU.analyseDistance(Distance_Max) == 1 :
 					Compte_Nb_Meme_Etat = Compte_Nb_Meme_Etat + 1
 				else :
 					Compte_Nb_Meme_Etat = 0
@@ -50,7 +56,7 @@ def main():
 					Date_Remplie = datetime.datetime.now()
 
 			else :
-				if CU.analyseDistance() == 0 :
+				if CU.analyseDistance(Distance_Max) == 0 :
 					Compte_Nb_Meme_Etat = Compte_Nb_Meme_Etat + 1
 				else :
 					Compte_Nb_Meme_Etat = 0
