@@ -1,2 +1,0 @@
-# BinManager
-Projet FAS - BinManager
