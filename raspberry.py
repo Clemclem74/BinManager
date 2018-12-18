@@ -1,11 +1,12 @@
 import capteur_ultrason as CU
 import led_rouge as LR
 import led_verte as LV
-#import base_de_donnees as BDD
+import base_de_donnees as BDD
 #import balise_GPS as GPS
 import mail as EM
 import ecran_LCD as LCD
 import time
+import datetime
 
 
 
@@ -18,13 +19,14 @@ def main():
 #Si poubelle pleine : Envoyer mail a l organisme avec la localisation de la poubelle
 #Stocker la date dans la base de donnees lorsque la poubelle est ramassee (analyseDistance : etat=0)
 
-
+	Numero_Poubelle = 1
 	Compte_Nb_Meme_Etat = 0
 	Pleins = False
 
 	LR.eteindreLedRouge()
 	LV.allumerLedVerte()
 	LCD.poubelle_libre()
+	
 
 
 	while(1):
@@ -45,6 +47,7 @@ def main():
 					Pleins = True
 					Compte_Nb_Meme_Etat = 0
 					EM.envoieEmail()
+					Date_Remplie = datetime.datetime.now()
 
 			else :
 				if CU.analyseDistance() == 0 :
@@ -59,6 +62,12 @@ def main():
 					LCD.poubelle_libre()
 					Pleins = False
 					Compte_Nb_Meme_Etat = 0
+					Temps_Avant_Vidage = datetime.datetime.now()-Date_Remplie
+					Date_Remplie=0
+					print(Temps_Avant_Vidage)
+					BDD.stockDonneesPleinVide(Numero_Poubelle, Temps_Avant_Vidage)
+					
+					
 
 			time.sleep(2)
 
