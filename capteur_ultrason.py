@@ -19,7 +19,7 @@ def recupererDistance():
     except IOError :
         return -1
 
-def analyseDistance():
+def analyseDistance(Distance_Max):
 #Analyse une distance et si Distance>ValeurMin
 
 #si etat etait a 1: mettre etat a 0 (poubelle ramassee)
@@ -29,9 +29,9 @@ def analyseDistance():
 #Contrainte: si Distance<hauteurPoubelle => on refais la mesure 
 #jusqu a avoir une distance entre 0 et hateurPoubelle(correspond au cas ou le $
         dist=recupererDistance()
-        if dist>700:
+        if dist>Distance_Max:
                 return -1
-        elif dist<20:
+        elif dist<10:
                 return 1
         else :
                 return 0
