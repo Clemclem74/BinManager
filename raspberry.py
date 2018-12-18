@@ -3,7 +3,7 @@ import led_rouge as LR
 import led_verte as LV
 #import base_de_donnees as BDD
 #import balise_GPS as GPS
-#import email as EM
+import mail as EM
 import ecran_LCD as LCD
 import time
 
